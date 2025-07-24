@@ -1,0 +1,22 @@
+name: Compile Arduino Sketch
+
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  compile-sketch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile Arduino sketch
+        uses: arduino/compile-sketches@v1
+        with:
+          sketch-paths: |
+            - ./
+          libraries: |
+            -
